@@ -25,8 +25,9 @@ class Convert:
 if __name__ == "__main__":
     con = Convert()
     row = con.convert_csv_to_dict()
+    print(type(row))
     for r in row:
-        print(r)
+        print(type(r))
 
 
 # python -m app.es.connection_and_converting
