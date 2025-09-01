@@ -1,4 +1,3 @@
-from elasticsearch import Elasticsearch
 import csv
 from .. import config
 
@@ -6,12 +5,12 @@ from .. import config
 class Convert:
 
     def __init__(self):
-        self.es = Elasticsearch(config.CONNECTION_ADDRESS_ES)
+        
         self.data = None
 
 
 
-    def convert_csv_to_es(self):
+    def convert_csv_to_dict(self):
         try:
             with open(config.CSV_FILE_PATH ,encoding="utf-8") as f:
                 reader = csv.DictReader(f)
@@ -24,7 +23,10 @@ class Convert:
 
 
 if __name__ == "__main__":
-    es = Convert()
-    row = es.convert_csv_to_es()
+    con = Convert()
+    row = con.convert_csv_to_dict()
     for r in row:
         print(r)
+
+
+# python -m app.es.connection_and_converting
