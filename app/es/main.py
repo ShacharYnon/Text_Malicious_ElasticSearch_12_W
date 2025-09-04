@@ -32,7 +32,6 @@ class manager_ES:
             if not self.data:
                 logger.error("No data to process after conversion.")
                 return
-            print(type(self.data))
 
             # Step 3: Enrich data with sentiment analysis
             self.data = SentimentEnhancer().enrich_documents(self.data)
